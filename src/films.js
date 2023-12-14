@@ -56,8 +56,30 @@ function moviesAverageByCategory(movies, category) {
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
-
+function hoursToMinutes(movies) {
+  let result = movies.map(function (movie) {
+    let durationInMinutes;
+    
+    if (movie.duration.includes('h') && movie.duration.includes('min')) {
+      const hours = parseInt(movie.duration.slice(0, movie.duration.indexOf('h')));
+      const minutes = parseInt(movie.duration.slice(movie.duration.indexOf('h') + 1, movie.duration.indexOf('min')));
+      durationInMinutes = hours * 60 + minutes;
+    } else if (movie.duration.includes('h')) {
+      const hours = parseInt(movie.duration.slice(0, movie.duration.indexOf('h')));
+      durationInMinutes = hours * 60;
+    } else if (movie.duration.includes('min')) {
+      const minutes = parseInt(movie.duration.slice(0, movie.duration.indexOf('min')));
+      durationInMinutes = minutes;
+    } else {
+      durationInMinutes = parseInt(movie.duration);
+    }
+    return {
+      ...movie,
+      duration: durationInMinutes
+    };
+  });
+  console.log("EXERCISE 7 ->", result);
+  return result;
 }
 
 // Exercise 8: Get the best film of a year
