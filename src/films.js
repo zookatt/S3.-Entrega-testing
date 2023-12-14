@@ -1,6 +1,8 @@
 // Exercise 1: Get the array of all directors.
-function getAllDirectors(array) {
-  let result =  ???;
+function getAllDirectors(movies) {
+  let result = movies.map(function (movies) {
+    return movies.director;
+  });
   console.log("EXERCICE 1 ->", result);
   return result;
 }
@@ -39,7 +41,6 @@ function hoursToMinutes() {
 function bestFilmOfYear() {
   
 }
-
 
 
 // The following is required to make unit tests work.
