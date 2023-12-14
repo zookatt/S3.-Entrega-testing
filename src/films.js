@@ -33,8 +33,17 @@ function orderAlphabetically(movies) {
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
-
+function orderByYear(movies) {
+  const copiedMovies = [...movies];//Copiar el array original
+  const orderedByYear = copiedMovies.sort((a, b) => {
+    if (a.year - b.year !== 0) {
+      return a.year - b.year;//ordenar por año
+    } else {
+      return a.title.localeCompare(b.title);//películas que tienen el mismo año,se ordenan alfabéticamente.
+    }
+  });
+  console.log("EXERCICE 5 ->", orderedByYear);
+  return orderedByYear;//devuelve un array de películas ordenadas por año.
 }
 
 // Exercise 6: Calculate the average of the movies in a category
