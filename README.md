@@ -84,3 +84,131 @@ an array of information about 250 movies.
 - Don't forget to include the capture of the test results in the virtual campus.
 
 
+## Solutions
+
+Functions:
+----------
+
+### 1\. `getAllDirectors(movies)`
+
+*   **Description:** Returns the array of all directors.
+*   **Methods Used:**
+    *   `map`: Extracts the director information from each movie object.
+*   **Usage:** `getAllDirectors(movies)`
+*   **Example:**
+    ```bash
+    `const directors = getAllDirectors(movies);`
+    ```
+
+### 2\. `getMoviesFromDirector(movies, director)`
+
+*   **Description:** Returns an array of movies directed by a specified director.
+*   **Methods Used:**
+    *   `filter`: Filters movies based on the specified director.
+*   **Usage:** `getMoviesFromDirector(movies, director)`
+*   **Example:**
+    ```bash 
+    `const directorMovies = getMoviesFromDirector(movies, 'Christopher Nolan');`
+    ```
+
+### 3\. `moviesAverageOfDirector(movies, director)`
+
+*   **Description:** Calculates the average score of movies directed by a specified director.
+*   **Methods Used:**
+    *   `getMoviesFromDirector`: Returns an array of movies directed by a specified director.
+    *   `reduce`: Calculates the total score of movies.
+*   **Usage:** `moviesAverageOfDirector(movies, director)`
+*   **Example:**
+    ```bash
+    `const averageScore = moviesAverageOfDirector(movies, 'Quentin Tarantino');`
+    ```
+
+### 4\. `orderAlphabetically(movies)`
+
+*   **Description:** Orders movies alphabetically by title and returns an array of titles.
+*   **Methods Used:**
+    *   `sort`: Alphabetically sorts movies based on title.
+    *   `slice`: Limits the result to the top 20 titles.
+*   **Usage:** `orderAlphabetically(movies)`
+*   **Example:**
+    ```bash
+    `const sortedTitles = orderAlphabetically(movies);`
+    ```
+
+### 5\. `orderByYear(movies)`
+
+*   **Description:** Orders movies by year in ascending order.
+*   **Methods Used:**
+    *   `sort`: Sorts movies by year, and then alphabetically if years are equal.
+*   **Usage:** `orderByYear(movies)`
+*   **Example:**
+    ```bash
+    `const orderedMovies = orderByYear(movies);`
+    ```
+
+### 6\. `moviesAverageByCategory(movies, category)`
+
+*   **Description:** Calculates the average score of movies in a specified category.
+*   **Methods Used:**
+    *   `filter`: Filters movies based on the specified category.
+    *   `reduce`: Calculates the total score of movies in the category.
+*   **Usage:** `moviesAverageByCategory(movies, category)`
+*   **Example:**
+    ```bash
+    `const averageScore = moviesAverageByCategory(movies, 'Action');`
+    ```
+
+### 7\. `hoursToMinutes(movies)`
+
+*   **Description:** Converts movie durations from hours and minutes to total minutes.
+*   **Methods Used:**
+    *   `map`: Iterates through movies and converts duration.
+*   **Usage:** `hoursToMinutes(movies)`
+*   **Example:**
+    ```bash
+    `const moviesInMinutes = hoursToMinutes(movies);`
+    ```
+
+### 8\. `bestFilmOfYear(movies, year)`
+
+*   **Description:** Retrieves the best-rated movie of a specified year.
+*   **Methods Used:**
+    *   `filter`: Filters movies based on the specified year.
+    *   `Math.max` and `map`: Finds the movie with the highest score.
+*   **Usage:** `bestFilmOfYear(movies, year)`
+*   **Example:**
+    ```bash
+    `const bestMovie = bestFilmOfYear(movies, 2020);`
+    ```
+
+## Unit test for function .6\ `moviesAverageByCategory(movies, category)`
+This unit test checks the functionality of the `moviesAverageByCategory` function.
+
+Test Cases:
+-----------
+
+1.  **Declaration Test:**
+    
+    *   The function should be declared.
+    ```bash
+    `it('should be declared', () => {   expect(typeof moviesAverageByCategory).toBe('function'); });`
+    ```
+2.  **Return Type Test:**
+    
+    *   The function should return a number.
+    ```bash
+    `it('should return a number', () => {   expect(typeof moviesAverageByCategory(movies, 'Drama')).toBe('number'); });`
+    ```
+3.  **NaN Check Test:**
+    
+    *   The result should not be NaN.
+
+    ```bash
+    `it('should be different from NaN', () => {   expect(moviesAverageByCategory(movies, 'Drama')).not.toBeNaN(); });`
+    ```
+4.  **Average Score Calculation Test:**
+    *   The function should return the correct average score of movies in a certain genre with two decimal places.
+  
+    ```bash
+    `it('should return the average score of movies of a certain genre. With 2 decimals! ', () => {   expect(moviesAverageByCategory([     { title: 'Paths of Glory', year: 1957, genre: ['Drama', 'War'], score: 8.4 },     { title: 'Django Unchained', year: 2012, genre: ['Drama', 'Western'], score: 8.4 },     { title: 'Pulp Fiction', year: 1994, genre: ['Crime', 'Drama'], score: 8.9 }   ], 'Drama')).toBe(8.57); });`
+    ```
